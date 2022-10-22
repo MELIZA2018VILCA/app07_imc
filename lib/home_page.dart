@@ -16,21 +16,31 @@ class _homePageState extends State<homePage> {
 
   double imc = 0;
 
-  String imcMensaje="";
+  String imcMensaje = "";
 
   calculadoraImc() {
     imc = peso / pow((altura / 100), 2);
-if (imc<18.5) {
-  imcMensaje='bajo de peso';
-} else if(imc>=18.5 && imc<25){
-imcMensaje='peso normal';
-}else if(imc>=25 && imc<30){
-imcMensaje='sobrepeso';
-}else{
-  imcMensaje='obecidad';
-}
-
-
+    if (imc < 16) {
+      imcMensaje = 'delgadez severa';
+    } else if (imc >= 16 && imc < 17) {
+      imcMensaje = 'delgadez moderada';
+    } else if (imc >= 17 && imc < 18.5) {
+      imcMensaje = 'delgadez leve';
+    } else if (imc >= 18.5 && imc < 25) {
+      imcMensaje = 'peso normal';
+    } else if (imc == 25) {
+      imcMensaje = 'sobrepeso';
+    } else if (imc >= 25 && imc < 30) {
+      imcMensaje = 'preobeso';
+    } else if (imc == 30) {
+      imcMensaje = 'obesidad ';
+    } else if (imc >= 30 && imc < 35) {
+      imcMensaje = 'obesidad leve';
+    } else if (imc >= 35 && imc < 40) {
+      imcMensaje = 'obesidad media';
+    } else {
+      imcMensaje = 'obecidad morbida';
+    }
   }
 
   @override
