@@ -15,8 +15,22 @@ class _homePageState extends State<homePage> {
   double altura = 155;
 
   double imc = 0;
+
+  String imcMensaje="";
+
   calculadoraImc() {
     imc = peso / pow((altura / 100), 2);
+if (imc<18.5) {
+  imcMensaje='bajo de peso';
+} else if(imc>=18.5 && imc<25){
+imcMensaje='peso normal';
+}else if(imc>=25 && imc<30){
+imcMensaje='sobrepeso';
+}else{
+  imcMensaje='obecidad';
+}
+
+
   }
 
   @override
@@ -158,7 +172,7 @@ class _homePageState extends State<homePage> {
               ),
             ),
             Text(
-              "sobrepeso:",
+              imcMensaje,
               style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w400,
