@@ -17,6 +17,7 @@ class _homePageState extends State<homePage> {
   double imc = 0;
 
   String imcMensaje = "";
+  String estado="";
 
   calculadoraImc() {
     imc = peso / pow((altura / 100), 2);
@@ -41,6 +42,14 @@ class _homePageState extends State<homePage> {
     } else {
       imcMensaje = 'obecidad morbida';
     }
+    if (imc < 18.5) {
+      estado='assets/images/perosn2.png';
+    }else if (imc >= 18.5 && imc < 25) {
+      estado = 'assets/images/person1.png';
+    } else {
+      estado = 'assets/images/person3.png';
+    }
+
   }
 
   @override
@@ -167,7 +176,7 @@ class _homePageState extends State<homePage> {
             ),
             Center(
               child: Image.asset(
-                "assets/images/perosn2.png",
+                estado,
                 height: 180,
                 width: 180,
                 fit: BoxFit.contain,
